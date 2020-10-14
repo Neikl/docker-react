@@ -2,8 +2,10 @@ pipeline {
     agent none
     stages {
         stage('Checkout Source') {
-            checkout scm
-        }        
+            steps {
+                checkout scm
+            }
+        }      
         stage('Build') {
             steps {
                 sh 'docker build .'

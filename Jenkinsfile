@@ -8,7 +8,7 @@ pipeline {
         }      
         stage('Build') {
             steps {
-                sh 'docker build -t neikl/frontend:latest .'
+                sh 'docker build -t "neikl/frontend:latest" .'
             }
         }
     }

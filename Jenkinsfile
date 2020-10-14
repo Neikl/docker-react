@@ -1,5 +1,5 @@
 pipeline {
-    agent { dockerfile true }
+    agent none
     stages {
         stage('Checkout Source') {
             steps {
@@ -8,7 +8,7 @@ pipeline {
         }      
         stage('Build') {
             steps {
-                sh "echo test"
+                sh "docker build -t neikl/frontend:latest ."
             }
         }
     }

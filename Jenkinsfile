@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Docker Run') {
             steps {
-                sh "docker run -it -p 8090:80 neikl/frontend:latest"
+                sh "docker run -p 8090:80 neikl/frontend:latest"
             }
         }        
     }

@@ -8,7 +8,7 @@ pipeline {
         }      
         stage('Build') {
             steps {
-                echo "docker build -t neikl/frontend:B${BUILD_NUMBER} -f Dockerfile ."
+                sh "echo docker build -t neikl/frontend:B${BUILD_NUMBER} -f Dockerfile ."
             }
         }
     }

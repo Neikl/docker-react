@@ -5,7 +5,7 @@ deploy:
   artifact: Dockerrun.aws.json
 global:
   application_name: docker-react
-  default_ec2_keyname: myKey
+  default_ec2_keyname: AwsKeyPairEc2
   default_platform: arn:aws:elasticbeanstalk:us-east-1::platform/Docker running on 64bit Amazon Linux 2/3.2.0
   default_region: us-east-1
   include_git_submodules: true

@@ -12,9 +12,11 @@ pipeline {
             }
         }
         stage('Push image') {
-            docker.withRegistry('https://922079431449.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:react-ecr-role') {
-                sh "docker push 922079431449.dkr.ecr.us-east-1.amazonaws.com/react:latest"
+            steps {
+			    docker.withRegistry('https://922079431449.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:react-ecr-role') {
+                    sh "docker push 922079431449.dkr.ecr.us-east-1.amazonaws.com/react:latest"
+                }
             }
-        }   
+        }
     }
 }

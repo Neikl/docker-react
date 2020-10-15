@@ -5,16 +5,16 @@ pipeline {
             steps {
                 checkout scm
             }
-        }      
+        }
         stage('Docker Build') {
             steps {
-                sh "docker build -t neikl/frontend:latest ."
+                sh "docker build -t 922079431449.dkr.ecr.us-east-1.amazonaws.com/react:latest ."
             }
         }
-        stage('Docker Run') {
-            steps {
-                sh "docker run -d -p 8090:80 neikl/frontend:latest"
-            }
-        }        
+		stage('Push image') {
+			docker.withRegistry('https://922079431449.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:react-ecr-role') {
+				sh "docker push 922079431449.dkr.ecr.us-east-1.amazonaws.com/react:latest"
+			}
+		}      
     }
 }

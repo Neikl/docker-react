@@ -17,9 +17,9 @@ node {
         }
     }
     stage('Install/Upgrade AWSEBCLI') {
-        sh "sudo pip install awsebcli --upgrade"
+        sh "sudo pip3 install awsebcli --upgrade"
     }	
     stage('Deploy on EB') {
-		sh "eb deploy"
+        sh "eb deploy"
     }	
 }

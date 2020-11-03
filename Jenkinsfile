@@ -13,15 +13,15 @@ node {
     }
     stage('Creating infrastructure') {
         sh "cd ./01-infrastructure && terraform init"
-        sh "cd ./01-infrastructure && terraform apply -var-file='./01-infrastructure/production.tfvars' -auto-approve"
+        sh "cd ./01-infrastructure && terraform apply -var-file='production.tfvars' -auto-approve"
     }
     stage('creating platform') {
         sh "cd ./02-platform && terraform init"
-        sh "cd ./02-platform && terraform apply -var-file='./02-platform/production.tfvars' -auto-approve"
+        sh "cd ./02-platform && terraform apply -var-file='production.tfvars' -auto-approve"
     }    
     stage('creating service') {
         sh "cd ./03-application && terraform init"
-        sh "cd ./03-application && terraform apply -var-file='./03-application/production.tfvars' -auto-approve"
+        sh "cd ./03-application && terraform apply -var-file='production.tfvars' -auto-approve"
     }     
     /*stage('Pull Image from ECR') {
         docker.withRegistry('https://922079431449.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:react-ecr-role') {

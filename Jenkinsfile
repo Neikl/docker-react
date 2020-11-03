@@ -3,14 +3,14 @@ node {
     stage('Clone Repository') {
         git branch: "master", url: "https://github.com/Neikl/docker-react.git"
     }
-    stage('Docker Build') {
+    /*stage('Docker Build') {
         sh "docker build -t 922079431449.dkr.ecr.us-east-1.amazonaws.com/react:latest ."
     }
     stage('Push Image to ECR') {
         docker.withRegistry('https://922079431449.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:react-ecr-role') {
             sh "docker push 922079431449.dkr.ecr.us-east-1.amazonaws.com/react:latest"
         }
-    }
+    }*/
     stage('Creating infrastructure') {
         sh "cd ./01-infrastructure && terraform init"
         sh "cd ./01-infrastructure && terraform apply -var-file='production.tfvars' -auto-approve"
